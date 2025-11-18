@@ -86,7 +86,8 @@ mkdir -p ~/.config/autostart
 nano ~/.config/autostart/start_index-files.desktop
 
 Содержимое файла (проверенный рабочий вариант):
-ini
+
+```
 
 [Desktop Entry]
 Type=Application
@@ -97,8 +98,10 @@ NoDisplay=false
 X-GNOME-Autostart-enabled=true
 Comment=start_index-files
 
+```
 Альтернативный вариант (более читаемый):
-ini
+
+```
 
 [Desktop Entry]
 Type=Application
@@ -109,22 +112,28 @@ NoDisplay=false
 X-GNOME-Autostart-enabled=true
 Comment=Automatic file indexing for Arcturus Launcher
 
+```
 Проверьте автозагрузку:
-bash
+
+```
 
 # Убедитесь что файл создан
 ls ~/.config/autostart/ | grep start_index
 
+```
+
+```
 # Проверьте права доступа
 chmod +x ~/.config/autostart/start_index-files.desktop
-
+```
 🔧 Настройка cron для регулярного обновления
 
 Автоматически (через скрипт):
-bash
 
+```
 ./file_indexer.sh
 
+```
 🎮 Использование
 Основное меню
 text
