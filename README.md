@@ -60,20 +60,15 @@ git clone https://github.com/yourusername/arcturus-launcher.git
 cd arcturus-launcher
 
 # 2. Сделайте скрипты исполняемыми
-chmod +x arcturus_launcher.sh file_indexer.sh
+chmod +x arcturus_launcher.sh index_db.sh
 
 # 3. Настройте автоматическую индексацию (ОБЯЗАТЕЛЬНО!)
-./file_indexer.sh
+# Выполните один раз - скрипт всё сделает сам:
+./index_db.sh
 
 # 4. Запустите лаунчер
 ./arcturus_launcher.sh
 
-⚙️ Настройка автозагрузки
-🔧 Автоматическая настройка (рекомендуется)
-bash
-
-# Выполните один раз - скрипт всё сделает сам:
-./file_indexer.sh
 
 Что будет настроено:
 
@@ -83,66 +78,6 @@ bash
 
     ✅ Фоновая работа без вмешательства пользователя
 
-🔧 Ручная настройка автозагрузки
-
-Создайте .desktop файл для автозагрузки:
-bash
-
-# Создайте директорию автозагрузки если её нет
-mkdir -p ~/.config/autostart
-
-# Создайте файл автозагрузки
-nano ~/.config/autostart/start_index-files.desktop
-
-Содержимое файла (проверенный рабочий вариант):
-
-```
-
-[Desktop Entry]
-Type=Application
-Name=start_index-files
-Exec=sh -c "/home/live/.local/bin/Arcturus/file_indexer.sh"
-Hidden=false
-NoDisplay=false
-X-GNOME-Autostart-enabled=true
-Comment=start_index-files
-
-```
-Альтернативный вариант (более читаемый):
-
-```
-
-[Desktop Entry]
-Type=Application
-Name=Arcturus File Indexer
-Exec=/home/live/.local/bin/Arcturus/file_indexer.sh
-Hidden=false
-NoDisplay=false
-X-GNOME-Autostart-enabled=true
-Comment=Automatic file indexing for Arcturus Launcher
-
-```
-Проверьте автозагрузку:
-
-```
-
-# Убедитесь что файл создан
-ls ~/.config/autostart/ | grep start_index
-
-```
-
-```
-# Проверьте права доступа
-chmod +x ~/.config/autostart/start_index-files.desktop
-```
-🔧 Настройка cron для регулярного обновления
-
-Автоматически (через скрипт):
-
-```
-./file_indexer.sh
-
-```
 🎮 Использование
 Основное меню
 text
@@ -203,20 +138,10 @@ for cmd in fzf plocate notify-send xclip file xdg-open; do
     fi
 done
 
-Проблемы с автозагрузкой
-bash
 
-# Проверка .desktop файла
-cat ~/.config/autostart/start_index-files.desktop
 
 # Проверка cron задач
 crontab -l
-
-# Проверка работает ли индексатор
-ps aux | grep file_indexer
-
-# Проверка логов автозагрузки
-journalctl --user-unit graphical-session-target --since "1 hour ago"
 
 
 
