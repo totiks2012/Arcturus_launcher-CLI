@@ -1,7 +1,7 @@
 # Arcturus_launcher-CLI
 A lightning-fast CLI launcher for Linux with intelligent file and app search. Find and launch anything in seconds!
 
-# Молниеносный лаунчер для Linux с интеллектуальным поиском файлов и приложений. 
+# Молниеносный лаунчер для Linux с интеллектуальным поиском файлов и приложений , с использованием fzf.
 Находите и запускайте что угодно за секунды! ⚡
 
 # ОБНОВЛЕНИЕ 15_05_26 -- arcturus_cli-30-adv-menu.sh  -- Arcturus CLI: Release Notes 
